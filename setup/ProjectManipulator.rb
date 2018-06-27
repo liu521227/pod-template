@@ -41,6 +41,8 @@ module Pod
       project_metadata_item.new_file "../" + @configurator.pod_name  + ".podspec"
       project_metadata_item.new_file "../README.md"
       project_metadata_item.new_file "../LICENSE"
+      project_metadata_item.new_file "../fastlane/Fastfile"
+
     end
 
     def remove_demo_project
