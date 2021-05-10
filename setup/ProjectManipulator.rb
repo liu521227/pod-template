@@ -28,7 +28,7 @@ module Pod
       replace_internal_project_settings
 
       @project = Xcodeproj::Project.open(@xcodeproj_path)
-      add_podspec_metadata
+      # add_podspec_metadata
       # remove_demo_project if @remove_demo_target
       @project.save
 
@@ -106,13 +106,13 @@ RUBY
         # end
 
         # rename project related files
-        ["PROJECT-Info.plist", "PROJECT-Prefix.pch", "PROJECT.entitlements"].each do |file|
-          before = project_folder + "/PROJECT/" + file
-          next unless File.exists? before
+        # ["PROJECT-Info.plist", "PROJECT-Prefix.pch", "PROJECT.entitlements"].each do |file|
+        #   before = project_folder + "/PROJECT/" + file
+        #   next unless File.exists? before
 
-          after = project_folder + "/PROJECT/" + file.gsub("PROJECT", @configurator.pod_name)
-          File.rename before, after
-        end
+        #   after = project_folder + "/PROJECT/" + file.gsub("PROJECT", @configurator.pod_name)
+        #   File.rename before, after
+        # end
       end
 
     end

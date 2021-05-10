@@ -72,14 +72,6 @@ module Pod
         :prefix => prefix
       }).run
 
-      # There has to be a single file in the Classes dir
-      # or a framework won't be created, which is now default
-      `touch Pod/Classes/ReplaceMe.m`
-
-      `mv ./templates/ios/* ./`
-
-      # remove podspec for osx
-      `rm ./NAME-osx.podspec`
     end
   end
 

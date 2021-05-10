@@ -1,13 +1,14 @@
 //
-//  CPDViewController.h
+//  ViewController.h
 //  PROJECT
 //
-//  Created by PROJECT_OWNER on TODAYS_DATE.
-//  Copyright (c) TODAYS_YEAR PROJECT_OWNER. All rights reserved.
+//  Created by qxk on 2021/5/10.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
 
+
 @end
+
