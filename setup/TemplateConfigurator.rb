@@ -71,11 +71,11 @@ module Pod
       @message_bank.welcome_message
       ConfigureIOS.perform(configurator: self)
       
-      replace_variables_in_files
+      # replace_variables_in_files
       clean_template_files
-      rename_template_files
+      # rename_template_files
       add_pods_to_podfile
-      customise_prefix
+      # customise_prefix
       rename_classes_folder
       ensure_carthage_compatibility
       reinitialize_git_repo
@@ -108,19 +108,19 @@ module Pod
       end
     end
 
-    def replace_variables_in_files
-      file_names = ['POD_LICENSE', 'POD_README.md', 'NAME.podspec', '.travis.yml', podfile_path,fastfile_path]
-      file_names.each do |file_name|
-        text = File.read(file_name)
-        text.gsub!("${POD_NAME}", @pod_name)
-        text.gsub!("${REPO_NAME}", @pod_name.gsub('+', '-'))
-        text.gsub!("${USER_NAME}", user_name)
-        text.gsub!("${USER_EMAIL}", user_email)
-        text.gsub!("${YEAR}", year)
-        text.gsub!("${DATE}", date)
-        File.open(file_name, "w") { |file| file.puts text }
-      end
-    end
+    # def replace_variables_in_files
+    #   file_names = ['POD_LICENSE', 'POD_README.md', 'NAME.podspec', '.travis.yml', podfile_path,fastfile_path]
+    #   file_names.each do |file_name|
+    #     text = File.read(file_name)
+    #     text.gsub!("${POD_NAME}", @pod_name)
+    #     text.gsub!("${REPO_NAME}", @pod_name.gsub('+', '-'))
+    #     text.gsub!("${USER_NAME}", user_name)
+    #     text.gsub!("${USER_EMAIL}", user_email)
+    #     text.gsub!("${YEAR}", year)
+    #     text.gsub!("${DATE}", date)
+    #     File.open(file_name, "w") { |file| file.puts text }
+    #   end
+    # end
 
     def add_pod_to_podfile podname
       @pods_for_podfile << podname
@@ -139,28 +139,28 @@ module Pod
       @prefixes << line
     end
 
-    def customise_prefix
-      prefix_path = "Example/Tests/Tests-Prefix.pch"
-      return unless File.exists? prefix_path
+    # def customise_prefix
+    #   prefix_path = "Example/Tests/Tests-Prefix.pch"
+    #   return unless File.exists? prefix_path
 
-      pch = File.read prefix_path
-      pch.gsub!("${INCLUDED_PREFIXES}", @prefixes.join("\n  ") )
-      File.open(prefix_path, "w") { |file| file.puts pch }
-    end
+    #   pch = File.read prefix_path
+    #   pch.gsub!("${INCLUDED_PREFIXES}", @prefixes.join("\n  ") )
+    #   File.open(prefix_path, "w") { |file| file.puts pch }
+    # end
 
-    def set_test_framework(test_type, extension, folder)
-      content_path = "setup/test_examples/" + test_type + "." + extension
-      tests_path = "templates/" + folder + "/Example/Tests/Tests." + extension
-      tests = File.read tests_path
-      tests.gsub!("${TEST_EXAMPLE}", File.read(content_path) )
-      File.open(tests_path, "w") { |file| file.puts tests }
-    end
+    # def set_test_framework(test_type, extension, folder)
+    #   content_path = "setup/test_examples/" + test_type + "." + extension
+    #   tests_path = "templates/" + folder + "/Example/Tests/Tests." + extension
+    #   tests = File.read tests_path
+    #   tests.gsub!("${TEST_EXAMPLE}", File.read(content_path) )
+    #   File.open(tests_path, "w") { |file| file.puts tests }
+    # end
 
-    def rename_template_files
-      FileUtils.mv "POD_README.md", "README.md"
-      FileUtils.mv "POD_LICENSE", "LICENSE"
-      FileUtils.mv "NAME.podspec", "#{pod_name}.podspec"
-    end
+    # def rename_template_files
+    #   FileUtils.mv "POD_README.md", "README.md"
+    #   FileUtils.mv "POD_LICENSE", "LICENSE"
+    #   FileUtils.mv "NAME.podspec", "#{pod_name}.podspec"
+    # end
 
     def rename_classes_folder
       FileUtils.mv "Pod", @pod_name
