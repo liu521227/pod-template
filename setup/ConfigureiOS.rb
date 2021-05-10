@@ -13,19 +13,7 @@ module Pod
 
     def perform
 
-      configurator.set_test_framework("xctest", "m", "ios")
-      prefix = nil
-
-      loop do
-        prefix = configurator.ask("What is your class prefix")
-
-        if prefix.include?(' ')
-          puts 'Your class prefix cannot contain spaces.'.red
-        else
-          break
-        end
-      end
-
+      # configurator.set_test_framework("xctest", "m", "ios")
       Pod::ProjectManipulator.new({
         :configurator => @configurator,
         :xcodeproj_path => "templates/ios/Example/PROJECT.xcodeproj",
