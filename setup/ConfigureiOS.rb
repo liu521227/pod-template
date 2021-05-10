@@ -30,7 +30,6 @@ module Pod
         :configurator => @configurator,
         :xcodeproj_path => "templates/ios/Example/PROJECT.xcodeproj",
         :platform => :ios,
-        :prefix => prefix
       }).run
 
       # There has to be a single file in the Classes dir

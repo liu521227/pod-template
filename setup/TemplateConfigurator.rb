@@ -69,9 +69,8 @@ module Pod
 
     def run
       @message_bank.welcome_message
-        ConfigureIOS.perform(configurator: self)
-      end
-
+      ConfigureIOS.perform(configurator: self)
+      
       replace_variables_in_files
       clean_template_files
       rename_template_files
