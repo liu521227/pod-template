@@ -1,14 +1,15 @@
 //
-//  AppDelegate.h
+//  CPDAppDelegate.h
 //  PROJECT
 //
-//  Created by qxk on 2021/5/10.
+//  Created by PROJECT_OWNER on TODAYS_DATE.
+//  Copyright (c) TODAYS_YEAR PROJECT_OWNER. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property (strong, nonatomic) UIWindow *window;
 
 @end
-

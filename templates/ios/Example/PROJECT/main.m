@@ -2,17 +2,16 @@
 //  main.m
 //  PROJECT
 //
-//  Created by qxk on 2021/5/10.
+//  Created by PROJECT_OWNER on TODAYS_DATE.
+//  Copyright (c) TODAYS_YEAR PROJECT_OWNER. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "AppDelegate.h"
+@import UIKit;
+#import "CPDAppDelegate.h"
 
-int main(int argc, char * argv[]) {
-    NSString * appDelegateClassName;
+int main(int argc, char * argv[])
+{
     @autoreleasepool {
-        // Setup code that might create autoreleased objects goes here.
-        appDelegateClassName = NSStringFromClass([AppDelegate class]);
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([CPDAppDelegate class]));
     }
-    return UIApplicationMain(argc, argv, nil, appDelegateClassName);
 }
