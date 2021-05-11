@@ -67,7 +67,7 @@ module Pod
         :configurator => @configurator,
         :xcodeproj_path => "PROJECT.xcodeproj",
         :platform => :ios,
-        :bundleId => "prefix.ppdai.loan"
+        :bundleId => @configurator.bundleId
       }).run
 
     end
