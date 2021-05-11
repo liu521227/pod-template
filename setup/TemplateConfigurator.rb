@@ -86,7 +86,7 @@ module Pod
           # end
       # end
 
-      # replace_variables_in_files
+      replace_variables_in_files
       clean_template_files
       # rename_template_files
       # add_pods_to_podfile
@@ -124,7 +124,7 @@ module Pod
     end
 
     def replace_variables_in_files
-      file_names = ['POD_LICENSE', 'POD_README.md', 'NAME.podspec', '.travis.yml', podfile_path]
+      file_names = [podfile_path]
       file_names.each do |file_name|
         text = File.read(file_name)
         text.gsub!("${POD_NAME}", @pod_name)
@@ -216,7 +216,7 @@ module Pod
     end
 
     def podfile_path
-      '.Podfile'
+      'Podfile'
     end
 
     #----------------------------------------#
