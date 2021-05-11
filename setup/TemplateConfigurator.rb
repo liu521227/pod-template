@@ -88,6 +88,7 @@ module Pod
 
       replace_variables_in_files
       clean_template_files
+      add_pod_to_podfile "FBSnapshotTestCase"
       # rename_template_files
       # add_pods_to_podfile
       # rename_classes_folder
