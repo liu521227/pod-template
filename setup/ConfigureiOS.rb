@@ -52,7 +52,6 @@ module Pod
       #     end
       # end
 
-      prefix = "ppd"
 
       # loop do
       #   prefix = configurator.ask("What is your class prefix").upcase
@@ -68,8 +67,7 @@ module Pod
         :configurator => @configurator,
         :xcodeproj_path => "templates/ios/Example/PROJECT.xcodeproj",
         :platform => :ios,
-        :remove_demo_project => (keep_demo == :no),
-        :prefix => prefix
+        :bundleId => "prefix.ppdai.loan"
       }).run
 
     end
