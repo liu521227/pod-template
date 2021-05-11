@@ -87,7 +87,7 @@ module Pod
       # end
 
       # replace_variables_in_files
-      clean_template_files
+      # clean_template_files
       # rename_template_files
       # add_pods_to_podfile
       # customise_prefix
@@ -96,7 +96,7 @@ module Pod
       # reinitialize_git_repo
       # run_pod_install
 
-      @message_bank.farewell_message
+      # @message_bank.farewell_message
     end
 
     #----------------------------------------#
