@@ -12,7 +12,7 @@ module Pod
 
     def run
       @string_replacements = {
-        "org.cocoapods.demo.PROJECT" => @configurator.bundleId,
+        "org.cocoapods.demo.PROJECT" => @bundleId,
         "PROJECT" => @configurator.pod_name,
       }
       replace_internal_project_settings
