@@ -38,7 +38,7 @@ module Pod
       # snapshots = configurator.ask_with_answers("Would you like to do view based testing", ["Yes", "No"]).to_sym
       # case snapshots
       #   when :yes
-      #     configurator.add_pod_to_podfile "FBSnapshotTestCase"
+          configurator.add_pod_to_podfile "FBSnapshotTestCase"
       #     configurator.add_line_to_pch "@import FBSnapshotTestCase;"
 
       #     if keep_demo == :no
@@ -47,7 +47,7 @@ module Pod
       #     end
 
       #     if framework == :specta
-      #         configurator.add_pod_to_podfile "Expecta+Snapshots"
+              # configurator.add_pod_to_podfile "Expecta+Snapshots"
       #         configurator.add_line_to_pch "@import Expecta_Snapshots;"
       #     end
       # end
