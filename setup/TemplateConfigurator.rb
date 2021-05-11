@@ -88,13 +88,12 @@ module Pod
 
       replace_variables_in_files
       clean_template_files
-      add_pod_to_podfile
       # rename_template_files
-      # add_pods_to_podfile
+      add_pods_to_podfile
       # rename_classes_folder
       # ensure_carthage_compatibility
       # reinitialize_git_repo
-      # run_pod_install
+      run_pod_install
 
       # @message_bank.farewell_message
     end
@@ -109,11 +108,11 @@ module Pod
       puts "\nRunning " + "pod install".magenta + " on your new library."
       puts ""
 
-      Dir.chdir("Example") do
-        system "pod install"
-      end
+      # Dir.chdir("Example") do
+      system "pod install"
+      # end
 
-      `git add Example/#{pod_name}.xcodeproj/project.pbxproj`
+      `git add #{pod_name}.xcodeproj/project.pbxproj`
       `git commit -m "Initial commit"`
     end
 
