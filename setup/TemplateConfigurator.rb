@@ -85,11 +85,11 @@ module Pod
               ConfigureIOS.perform(configurator: self)
           # end
       # end
-
+      self.add_pod_to_podfile "Kiwi"
       replace_variables_in_files
       clean_template_files
       # rename_template_files
-      add_pods_to_podfile
+      # add_pods_to_podfile
       # rename_classes_folder
       # ensure_carthage_compatibility
       # reinitialize_git_repo
