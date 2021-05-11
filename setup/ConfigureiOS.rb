@@ -65,7 +65,7 @@ module Pod
 
       Pod::ProjectManipulator.new({
         :configurator => @configurator,
-        :xcodeproj_path => "templates/ios/Example/PROJECT.xcodeproj",
+        :xcodeproj_path => "PROJECT.xcodeproj",
         :platform => :ios,
         :bundleId => "prefix.ppdai.loan"
       }).run
