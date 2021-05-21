@@ -3,12 +3,11 @@ require 'xcodeproj'
 module Pod
 
   class ProjectManipulator
-    attr_reader :configurator, :xcodeproj_path, :bundleId, :dependencies
+    attr_reader :configurator, :xcodeproj_path, :bundleId
     def initialize(options)
       @xcodeproj_path = options.fetch(:xcodeproj_path)
       @configurator = options.fetch(:configurator)
       @bundleId = options.fetch(:bundleId)
-      @dependencies = options.fetch(:dependencies)
     end
 
     def run
