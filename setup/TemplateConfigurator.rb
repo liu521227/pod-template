@@ -1,14 +1,15 @@
 require 'fileutils'
 require 'colored2'
-
+require 'json'
 module Pod
   class TemplateConfigurator
 
-    attr_reader :pod_name, :pods_for_podfile, :bundleId, :test_example_file, :username, :email
+    attr_reader :pod_name, :pods_for_podfile, :bundleId, :dependencies, :username, :email
 
-    def initialize(pod_name,bundleId)
+    def initialize(pod_name,bundleId,dependencies)
       @pod_name = pod_name
       @bundleId = bundleId
+      @dependencies = dependencies
       @pods_for_podfile = []
       @message_bank = MessageBank.new(self)
     end
@@ -69,22 +70,11 @@ module Pod
 
     def run
       @message_bank.welcome_message
-      self.add_pod_to_podfile "Kiwi"
-      # platform = self.ask_with_answers("What platform do you want to use?", ["iOS", "macOS"]).to_sym
 
-      # case platform
-      #   when :macos
-      #     ConfigureMacOSSwift.perform(configurator: self)
-      #   when :ios
-      #     framework = self.ask_with_answers("What language do you want to use?", ["Swift", "ObjC"]).to_sym
-      #     case framework
-      #       when :swift
-      #         ConfigureSwift.perform(configurator: self)
-
-      #       when :objc
-              ConfigureIOS.perform(configurator: self)
-          # end
-      # end
+      for i in JSON.parse(@dependencies) do   
+        self.add_pod_to_podfile i['name']   
+      end
+      ConfigureIOS.perform(configurator: self)
       replace_variables_in_files
       clean_template_files
       # rename_template_files
