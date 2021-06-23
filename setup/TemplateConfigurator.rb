@@ -70,8 +70,11 @@ module Pod
 
     def run
       @message_bank.welcome_message
-
-      for i in JSON.parse(@dependencies) do   
+      print "dependencies---------"
+      print @dependencies
+      for i in JSON.parse(@dependencies) do
+        print "i---------"
+        print i
         self.add_pod_to_podfile i['name']   
       end
       ConfigureIOS.perform(configurator: self)
